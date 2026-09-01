@@ -25,13 +25,13 @@ module half_subtractor_tb;
     reg a ; 
     reg b ; 
     
-    wire difference ; 
+    wire diff ; 
     wire borrow ; 
     
     half_subtractor_dataflow DUT(
     .a(a), 
     .b(b), 
-    .difference(difference), 
+    .diff(diff), 
     .borrow(borrow)
     );
     

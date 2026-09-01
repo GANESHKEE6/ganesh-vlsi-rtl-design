@@ -1,10 +1,11 @@
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
-// Create Date: 09/01/2026 02:16:57 PM
+// Create Date: 09/01/2026 02:59:55 PM
 // Design Name: 
-// Module Name: half_subtractor_dataflow
+// Module Name: full_subtractor_dataflow
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,17 +19,13 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module half_subtractor_dataflow (
-    input wire a,
-    input wire b,
-    output wire diff,
-    output wire borrow
-);
 
-    // Difference is a XOR b
-    assign diff = a ^ b;
+module full_subtractor_dataflow(
+    input a , b , cin , 
+    output wire diff , wire borr 
+    );
     
-    // Borrow is (NOT a) AND b
-    assign borrow = ~a & b;
+    assign diff = ( a ^ b ^ cin ) ; 
+    assign borr = ( b & cin ) | ( ~a & b ) | ( ~a & cin ) ; 
 
 endmodule
