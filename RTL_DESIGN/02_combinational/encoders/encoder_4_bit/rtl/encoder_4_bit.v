@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 09/01/2026 03:39:53 PM
+// Create Date: 09/02/2026 10:07:50 AM
 // Design Name: 
-// Module Name: 2X1_mux
+// Module Name: encoder_4_bit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mux_2X1(
-
+module encoder_4_bit_dataflow(
+    input a , b , c , d , 
+    output x , y 
     );
+    
+    assign x = ( a | b ) ; 
+    assign y = ( a | c ) ;     
+    
 endmodule
