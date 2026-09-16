@@ -24,7 +24,7 @@ module au_sub_8_bit(
     input [ 7 : 0 ] a , 
     input [ 7 : 0 ] b , 
     input cin , 
-    output [ 7 : 0 ] diff , 
+    output [ 15 : 0 ] y , 
     output bo
     );
     
@@ -34,7 +34,7 @@ module au_sub_8_bit(
         .a(a[0]), 
         .b(b[0]), 
         .cin(cin), 
-        .d(diff[0]),
+        .d(y[0]),
         .bi(b0)
     );
     
@@ -42,7 +42,7 @@ module au_sub_8_bit(
         .a(a[1]),
         .b(b[1]), 
         .cin(b0), 
-        .d(diff[1]), 
+        .d(y[1]), 
         .bi(b1)
     );
     
@@ -50,7 +50,7 @@ module au_sub_8_bit(
         .a(a[2]), 
         .b(b[2]),
         .cin(b1), 
-        .d(diff[2]),
+        .d(y[2]),
         .bi(b2)
     );
     
@@ -58,7 +58,7 @@ module au_sub_8_bit(
         .a(a[3]), 
         .b(b[3]),
         .cin(b2), 
-        .d(diff[3]), 
+        .d(y[3]), 
         .bi(b3)
     );
     
@@ -66,7 +66,7 @@ module au_sub_8_bit(
         .a(a[4]),
         .b(b[4]), 
         .cin(b3), 
-        .d(diff[4]), 
+        .d(y[4]), 
         .bi(b4)
     );
     
@@ -74,7 +74,7 @@ module au_sub_8_bit(
         .a(a[5]),
         .b(b[5]), 
         .cin(b4), 
-        .d(diff[5]), 
+        .d(y[5]), 
         .bi(b5)
     );
     
@@ -82,7 +82,7 @@ module au_sub_8_bit(
         .a(a[6]), 
         .b(b[6]), 
         .cin(b5), 
-        .d(diff[6]), 
+        .d(y[6]), 
         .bi(b6)
     );
     
@@ -90,9 +90,11 @@ module au_sub_8_bit(
         .a(a[7]), 
         .b(b[7]), 
         .cin(b6),
-        .d(diff[7]),
+        .d(y[7]),
         .bi(bo)
     );
+    
+      assign y[15 : 8 ] = 8'b00000000; 
      
       
 endmodule

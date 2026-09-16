@@ -23,7 +23,7 @@
 module lu_or_8_bit(
     input [ 7 : 0 ] a , 
     input [ 7 : 0 ] b , 
-    output[7 : 0 ] y 
+    output[15 : 0 ] y 
     );
     
     assign y = ( a | b ) ;

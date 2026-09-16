@@ -41,7 +41,7 @@ module full_adder(
         .c(c2)
     );
     
-    or(cout , c1 , c2 ) ; 
+    or(c , c1 , c2 ) ; 
     
     
 endmodule

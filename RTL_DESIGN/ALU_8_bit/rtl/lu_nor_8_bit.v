@@ -23,7 +23,7 @@
 module lu_nor_8_bit(
     input [ 7 : 0 ] a,
     input [ 7 : 0 ] b, 
-    output reg [ 7 : 0 ] y
+    output reg [ 15 : 0 ] y
     );
     
     always @ (*) begin 

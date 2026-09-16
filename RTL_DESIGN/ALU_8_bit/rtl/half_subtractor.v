@@ -27,6 +27,6 @@ module half_subtractor(
     wire a1 ;
     not(a1 , a );
     xor( d , a , b ) ; 
-    and( b , a1 , b ) ;
+    and( bo , a1 , b ) ;
     
 endmodule

@@ -22,9 +22,9 @@
 
 module lu_and_8_bit(
     input [7 : 0 ]a , [7 : 0 ] b ,
-    output [ 7 : 0 ] y 
+    output [ 15 : 0 ] y 
     );
     
-    and(y , a , b ) ; 
+   assign y = ( a & b ) ; 
     
 endmodule
