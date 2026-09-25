@@ -19,38 +19,60 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`timescale 1ns / 1ps
 
 module piso_tb;
-    reg [3:0]p_in ; 
-    reg clk ; 
-    reg rst ; 
-    
-    wire s_out ; 
-    
-    piso DUT(
-        .p_in(p_in), 
-        .clk(clk), 
-        .rst(rst),
-        .s_out(s_out)
+
+    reg [3:0] p_in;
+    reg clk;
+    reg rst;
+    reg load;
+    wire s_out;
+
+    // DUT
+    piso uut (
+        .p_in  (p_in),
+        .clk   (clk),
+        .rst   (rst),
+        .load  (load),
+        .s_out (s_out)
     );
-    
-    initial begin 
-    clk = 1 ; 
-    forever #5 clk = ~clk ; 
-    end 
-    
-    initial  begin 
-    
-    rst = 1 ; 
-    p_in = 4'b1010 ; #10; 
-    rst = 0 ;
-    
-    p_in = 4'b0101 ; #25 ;
-    
-    p_in = 4'b0 ; #50 ;
-    
-    $finish ; 
-    
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    initial begin
+
+        // Initial values
+        clk  = 0;
+        rst  = 1;
+        load = 0;
+        p_in = 4'b0000;
+
+        // Reset
+        #10;
+        rst = 0;
+
+        // Parallel load
+        p_in = 4'b1011;
+        load = 1;
+
+        #10;
+
+        // Start shifting
+        load = 0;
+
+        // 4 shift cycles
+        #40;
+
+        // Finish simulation
+        $finish;
     end
-   
+
+    // Monitor
+    initial begin
+        $monitor("Time = %0t | rst = %b | load = %b | p_in = %b | temp = %b | s_out = %b",
+                 $time, rst, load, p_in, uut.temp, s_out);
+    end
+
 endmodule
