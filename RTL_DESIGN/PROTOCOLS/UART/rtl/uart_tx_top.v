@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module uart_tx_top (
     input  wire       clk,
     input  wire       rst,
@@ -10,7 +8,7 @@ module uart_tx_top (
     wire tx_en;
     wire busy;
 
-    baud_rate_generator BRG (
+    BRG_TX BRG (
         .clk(clk),
         .rst(rst),
         .tx_en(tx_en)

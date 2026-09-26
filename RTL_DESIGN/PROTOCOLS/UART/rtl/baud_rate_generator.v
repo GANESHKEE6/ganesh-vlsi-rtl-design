@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module baud_rate_generator (
+module BRG_TX (
     input  wire clk,
     input  wire rst,
     output reg  tx_en

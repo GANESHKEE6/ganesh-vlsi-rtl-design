@@ -25,13 +25,13 @@ module baud_rate_tb;
     reg clk ; 
     reg rst ; 
     
-    wire tx_en ; 
+  //  wire tx_en ; 
     wire rx_en ; 
     
-    baud_rate_generator DUT(
+    BRG_RX DUT(
         .clk(clk) ,
          .rst(rst) ,
-          .tx_en(tx_en) ,
+       //   .tx_en(tx_en) ,
           .rx_en(rx_en)
         );
         
